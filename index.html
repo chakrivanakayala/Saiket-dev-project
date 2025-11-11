@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>SaiKet Systems – Internship Tasks</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<header class="site-header">
+		<div class="brand">
+			<img class="brand-logo" src="assets/logo.svg" alt="SaiKet Systems logo" />
+			<div class="brand-text">
+				<h1>Internship Program</h1>
+				<p>Software Development</p>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<h2 class="hero-title">Task Demo</h2>
+			<div class="task-tabs" role="tablist" aria-label="Internship Tasks">
+				<button class="task-tab" data-launch="emi-demo" id="tab-1">Task 1</button>
+				<button class="task-tab" data-launch="api-demo" id="tab-2">Task 2</button>
+				<button class="task-tab" data-launch="blog-demo" id="tab-3">Task 3</button>
+				<button class="task-tab" data-launch="guess-demo" id="tab-4">Task 4</button>
+				<button class="task-tab" data-launch="contacts-demo" id="tab-5">Task 5</button>
+			</div>
+		</section>
+
+		<!-- Panels removed: buttons now open demos directly -->
+	</main>
+
+	<footer class="site-footer">
+		<p>© <span id="year"></span> SaiKet Systems. All rights reserved.</p>
+	</footer>
+
+	<!-- Simple modal demo for Task 1 (EMI) -->
+	<div class="modal" id="emi-demo" aria-hidden="true" role="dialog" aria-modal="false">
+		<div class="modal-backdrop" data-dismiss></div>
+		<div class="modal-dialog" role="document">
+			<header class="modal-header">
+				<h4>Loan EMI Calculator</h4>
+				<button class="icon-button" title="Close" data-dismiss>&times;</button>
+			</header>
+			<div class="modal-body">
+				<form class="emi-form" onsubmit="return false;">
+					<label>
+						<span>Principal (₹)</span>
+						<input type="number" id="principal" min="0" step="0.01" placeholder="e.g., 500000" />
+					</label>
+					<label>
+						<span>Annual Interest (%)</span>
+						<input type="number" id="rate" min="0" step="0.01" placeholder="e.g., 10" />
+					</label>
+					<label>
+						<span>Tenure (months)</span>
+						<input type="number" id="months" min="1" step="1" placeholder="e.g., 60" />
+					</label>
+					<button class="cta compute" id="computeEmi">Compute EMI</button>
+				</form>
+				<div class="emi-result" id="emiResult">Enter values and compute.</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Task 2 API demo modal -->
+	<div class="modal" id="api-demo" aria-hidden="true" role="dialog" aria-modal="false">
+		<div class="modal-backdrop" data-dismiss></div>
+		<div class="modal-dialog" role="document">
+			<header class="modal-header">
+				<h4>Public API Demo (Random Joke)</h4>
+				<button class="icon-button" title="Close" data-dismiss>&times;</button>
+			</header>
+			<div class="modal-body">
+				<p class="objective">Fetch a random programming/general joke from a free public API and display it below.</p>
+				<div style="display:flex; gap:8px; align-items:center; margin:8px 0 10px;">
+					<button class="cta" id="fetchJoke">Get Joke</button>
+					<span id="apiStatus" style="color: var(--muted);"></span>
+				</div>
+				<div id="jokeResult" style="padding:12px; background:#0e1330; border:1px solid rgba(255,255,255,.08); border-radius:10px; min-height:48px;"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Task 3 Blog demo modal -->
+	<div class="modal" id="blog-demo" aria-hidden="true" role="dialog" aria-modal="false">
+		<div class="modal-backdrop" data-dismiss></div>
+		<div class="modal-dialog" role="document">
+			<header class="modal-header">
+				<h4>Simple Blog (Local Storage)</h4>
+				<button class="icon-button" title="Close" data-dismiss>&times;</button>
+			</header>
+			<div class="modal-body">
+				<form id="blogForm" style="display:grid; gap:10px; margin-bottom:12px;" onsubmit="return false;">
+					<input id="postTitle" placeholder="Post title" />
+					<textarea id="postBody" placeholder="Write your post…" rows="4" style="resize:vertical; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,.08); background:#0e1330; color:var(--text);"></textarea>
+					<button class="cta" id="addPost">Add Post</button>
+				</form>
+				<div id="postsList" style="display:grid; gap:10px;"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Task 4 Number Guessing Game modal -->
+	<div class="modal" id="guess-demo" aria-hidden="true" role="dialog" aria-modal="false">
+		<div class="modal-backdrop" data-dismiss></div>
+		<div class="modal-dialog" role="document">
+			<header class="modal-header">
+				<h4>Number Guessing Game</h4>
+				<button class="icon-button" title="Close" data-dismiss>&times;</button>
+			</header>
+			<div class="modal-body">
+				<p class="objective">I picked a number between 1 and 100. Try to guess it!</p>
+				<div style="display:flex; gap:8px; align-items:center; margin:8px 0 10px;">
+					<input id="guessInput" type="number" min="1" max="100" placeholder="Enter your guess" style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.08); background:#0e1330; color:var(--text);" />
+					<button class="cta" id="submitGuess">Guess</button>
+					<button class="cta" id="restartGame" style="background:linear-gradient(180deg,#ffd24d,#ffb300); box-shadow:0 8px 20px rgba(255,179,0,.25); color:#241b00;">Restart</button>
+				</div>
+				<div id="guessFeedback" style="min-height:28px; color:var(--muted);"></div>
+				<div id="guessStats" style="margin-top:6px; color:var(--muted);"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Task 5 Contact Book modal -->
+	<div class="modal" id="contacts-demo" aria-hidden="true" role="dialog" aria-modal="false">
+		<div class="modal-backdrop" data-dismiss></div>
+		<div class="modal-dialog" role="document">
+			<header class="modal-header">
+				<h4>Contact Book</h4>
+				<button class="icon-button" title="Close" data-dismiss>&times;</button>
+			</header>
+			<div class="modal-body">
+				<form id="contactForm" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-bottom:12px;" onsubmit="return false;">
+					<input id="cName" placeholder="Name" />
+					<input id="cPhone" placeholder="Phone" />
+					<input id="cEmail" placeholder="Email" />
+					<button class="cta" id="addContact" style="grid-column: 1 / -1;">Add Contact</button>
+				</form>
+				<div style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+					<input id="searchContact" placeholder="Search by name" style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.08); background:#0e1330; color:var(--text);" />
+					<span id="contactMsg" style="color: var(--muted);"></span>
+				</div>
+				<div id="contactsList" style="display:grid; gap:10px;"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
+

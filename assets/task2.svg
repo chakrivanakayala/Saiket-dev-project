@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1221"/>
+      <stop offset="1" stop-color="#1b2352"/>
+    </linearGradient>
+    <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4DD2FF"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+  <g stroke="url(#wire)" stroke-width="6" fill="none" opacity=".85">
+    <path d="M80 140 C 220 140, 260 240, 380 240 S 540 340, 660 340 S 820 240, 980 240"/>
+    <circle cx="80" cy="140" r="10" fill="#4DD2FF"/>
+    <circle cx="380" cy="240" r="10" fill="#7C5CFF"/>
+    <circle cx="660" cy="340" r="10" fill="#4DD2FF"/>
+    <circle cx="980" cy="240" r="10" fill="#7C5CFF"/>
+  </g>
+  <g transform="translate(160,420)">
+    <rect width="880" height="260" rx="20" fill="#151936" stroke="rgba(255,255,255,.12)"/>
+    <g transform="translate(24,28)" fill="#E8ECFF" font-family="Inter, Arial">
+      <text font-size="36" font-weight="700">Fetch Data from an API</text>
+      <text y="44" dy="28" font-size="18" fill="#9aa3b2">Call a public endpoint and present the response clearly.</text>
+    </g>
+    <g transform="translate(24,120)">
+      <rect width="300" height="48" rx="10" fill="#0e1330" stroke="rgba(255,255,255,.08)"/>
+      <rect x="320" width="160" height="48" rx="10" fill="#0fb7ff"/>
+      <rect x="490" width="360" height="48" rx="10" fill="#7c5cff" opacity=".6"/>
+    </g>
+  </g>
+</svg>
+
